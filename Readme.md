@@ -1,0 +1,1 @@
+## PixelNeRF Rendering Equation
