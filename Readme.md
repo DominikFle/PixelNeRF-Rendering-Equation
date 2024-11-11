@@ -26,10 +26,12 @@ $$\mathbf{C}_ {i} = \mathbf{C}(\mathbf{o},\mathbf{d}_ {i}) = \int_ {0}^{\infty} 
 Assuming piecewise constant color the rendering equation can be further simplified to [[1]]((https://arxiv.org/abs/2310.20685)):
 $$\mathbf{C}(\mathbf{o},\mathbf{d}) = \sum_ {j=1}^{N} \left( \int_ {t_ {j}}^{t_ {j+1}} T(u) \sigma(u) du \right)\mathbf{c}_ {j}$$
 using the differentiation trick one can rewrite
-$$ \int_ {t_ {j}}^{t_ {j+1}} T(u) \sigma(u) du =  \int_ {t_ {j}}^{t_ {j+1}} \sigma(u) e^{-\int_ {0}^{u}\sigma(\mathbf{x}({t}),\mathbf{d}) d{t}} du = \\ \int_ {t_ {j}}^{t_ {j+1}} - \frac{d}{du} e^{-\int_{0}^{u}\sigma(\mathbf{x}({t}),\mathbf{d}) d{t}} du = \\ -e^{-\int_ {0}^{t_ {j+1}}\sigma(\mathbf{x}({t}),\mathbf{d}) d{t}} + e^{-\int_ {0}^{t_ {j}}\sigma(\mathbf{x}({t}),\mathbf{d}) d{t}} = T(t_ {j}) - T(t_ {j+1}) = \\
+
+$$ \int_ {t_ {j}}^{t_ {j+1}} T(u) \sigma(u) du =  \int_ {t_ {j}}^{t_ {j+1}} \sigma(u) e^{-\int_ {0}^{u}\sigma(\mathbf{x}({t}),\mathbf{d}) d{t}} du = \\ \int_ {t_ {j}}^{t_ {j+1}} - \frac{d}{du} e^{-\int_ {0}^{u}\sigma(\mathbf{x}({t}),\mathbf{d}) d{t}} du = \\ -e^{-\int_ {0}^{t_ {j+1}}\sigma(\mathbf{x}({t}),\mathbf{d}) d{t}} + e^{-\int_ {0}^{t_ {j}}\sigma(\mathbf{x}({t}),\mathbf{d}) d{t}} = T(t_ {j}) - T(t_ {j+1}) = \\
  T(t_ {j}) - T(t_ {j+1}) = T(t_ {j})(1-e^{-\int_ {t_ {j}}^{t_ {j+1}}\sigma(\mathbf{x}({t}), \mathbf{d})dt})$$
+
 After discretizing the rendering equation the equation from [[2]](https://arxiv.org/pdf/2003.08934):
-$$\mathbf{C}(\mathbf{o},\mathbf{d}) = \sum_{j=1}^{N} T_ {j}(1-e^{-\sigma(\mathbf{x}({t}), \mathbf{d})(t_ {j+1}-t_ {j})})\mathbf{c}_ {j}.$$
+$$\mathbf{C}(\mathbf{o},\mathbf{d}) = \sum_ {j=1}^{N} T_ {j}(1-e^{-\sigma(\mathbf{x}({t}), \mathbf{d})(t_ {j+1}-t_ {j})})\mathbf{c}_ {j}.$$
 and the transmittance $T(t_ {j})$ is discretized to:
 $$T_j = e^{-\sum_{k=0}^{k = j}\sigma(\mathbf{x}({t}),\mathbf{d}) (t_ {k+1}-t_ {k})}.$$
 Though [1] criticizes the discretization of the rendering equation as it leads to quadrature instability, it is used in this work.
