@@ -6,7 +6,9 @@ This project aims to visualize and understand the way of rendering a 3D Model us
 
 ### PixelNeRF Rendering Equation
 
-The rendering equation is used to predict the RGB color $\mathbf{c} \in [0,1]^{3}$ of a pixel in a camera view. The pixel position is described via the given 3D point of the camera $\mathbf{o}$ and the normalized viewing direction $\mathbf{d}$. A MLP $f_{\theta}$ represents the 3D scene and can be queried at any 3D point $\mathbf{x}$ to get the local RGB color $ \mathbf{c} $ and the absortption density $\sigma$ of the scene at that point. The rendering equation renders the color $ \mathbf{C_i} $ for every pixel with direction $ \mathbf{d_{i}} $ in the camera view. The rendering equation is given by:
+The rendering equation is used to predict the RGB color $\mathbf{c} \in [0,1]^{3}$ of a pixel in a camera view. The pixel position is described via the given 3D point of the camera $\mathbf{o}$ and the normalized viewing direction $\mathbf{d}$. 
+A MLP $f_{\theta}$ represents the 3D scene and can be queried at any 3D point $\mathbf{x}$ to get the local RGB color $ \mathbf{c} $ and the absortption density $\sigma$ of the scene at that point. 
+The rendering equation renders the color $ \mathbf{C}_i $ for every pixel with direction $ \mathbf{d}_i $ in the camera view. The rendering equation is given by:
 $$
 \mathbf{C}_i = \mathbf{C}(\mathbf{o},\mathbf{d}_i) = \int_{0}^{\infty} \sigma\left(\mathbf{x}(t),\mathbf{d}_i\right)e^{-\int_{0}^{t}\sigma(\mathbf{x}(\hat{t}),\mathbf{d}) d\hat{t}} \mathbf{c\left(\mathbf{x}(t),\mathbf{d}_i\right)} dt
 $$
