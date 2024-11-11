@@ -31,9 +31,13 @@ $$ \int_ {t_ {j}}^{t_ {j+1}} T(u) \sigma(u) du =  \int_ {t_ {j}}^{t_ {j+1}} \sig
  T(t_ {j}) - T(t_ {j+1}) = T(t_ {j})(1-e^{-\int_ {t_ {j}}^{t_ {j+1}}\sigma(\mathbf{x}({t}), \mathbf{d})dt})$$
 
 After discretizing the rendering equation the equation from [[2]](https://arxiv.org/pdf/2003.08934):
+
 $$\mathbf{C}(\mathbf{o},\mathbf{d}) = \sum_ {j=1}^{N} T_ {j}(1-e^{-\sigma(\mathbf{x}({t}), \mathbf{d})(t_ {j+1}-t_ {j})})\mathbf{c}_ {j}.$$
-and the transmittance $T(t_ {j})$ is discretized to:
+
+The transmittance $T(t_ {j})$ is discretized to:
+
 $$T_j = e^{-\sum_{k=0}^{k = j}\sigma(\mathbf{x}({t}),\mathbf{d}) (t_ {k+1}-t_ {k})}.$$
+
 Though [1] criticizes the discretization of the rendering equation as it leads to quadrature instability, it is used in this work.
 
 [1] [NeRF Revisited: Fixing Quadrature Instability in
