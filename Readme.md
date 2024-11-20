@@ -45,3 +45,20 @@ Volume Rendering](https://arxiv.org/abs/2310.20685)
 
 [1] [NeRF: Representing Scenes as
 Neural Radiance Fields for View Synthesis](https://arxiv.org/pdf/2003.08934)
+
+### Rendering a Cube
+
+As an example a cube is rendered where $\sigma$ and $\mathbf{c}$ are analytically known. In particular the function for the absorption density $\sigma$ is given by:
+$$
+\sigma(\mathbf{x}) = \begin{cases}
+1 & \text{if } \mathbf{x} \in [0,1]^3 \\
+0 & \text{otherwise}
+\end{cases}
+$$
+additionally the color is an arbitrary function in $ \mathbf{x} \in \mathbb{R}^3$. For example a gradient function is:
+$$
+\mathbf{c}(\mathbf{x}) = \begin{cases}
+\mathbf{x} & \text{if } \mathbf{x} \in [0,1]^3 \\
+\mathbf{0} & \text{otherwise}
+\end{cases}
+$$ 
