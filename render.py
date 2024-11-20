@@ -18,12 +18,12 @@ c = render_nerf_pixel(
 )
 # Example parameters (change as needed)
 W, H = 100, 100  # Image width and height
-fx, fy = 60, 60  # Focal lengths
+fx, fy = 30, 30  # Focal lengths
 cx, cy = W / 2, H / 2  # Principal point at the image center
 
 ray_map = compute_ray_map(W, H, fx, fy, cx, cy)
 ray_map = rotate_ray_map_by_center_ray(ray_map, target_ray=np.array([-1.0, -1.0, -1.0]))
-vis_ray_map(ray_map, path="ray_map.png")
+# vis_ray_map(ray_map, path="ray_map.png")
 img = np.zeros((H, W, 3))
 for i in range(W):
     for j in range(H):
@@ -37,3 +37,4 @@ for i in range(W):
         img[i, j] = c
 plt.imshow(img)
 plt.show()
+plt.imsave("cube.png", img)
