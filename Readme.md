@@ -61,4 +61,7 @@ $$
 \mathbf{x} & \text{if } \mathbf{x} \in [0,1]^3 \\
 \mathbf{0} & \text{otherwise}
 \end{cases}
-$$ 
+$$
+Rendering the cube with lighting on one side creates the following image:
+
+<img src="cube.png" width="300" height="300">
